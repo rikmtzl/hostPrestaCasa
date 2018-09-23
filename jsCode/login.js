@@ -10,10 +10,18 @@ firebase.initializeApp({
 //Obtener elementos del DOM
  const userEmail = document.getElementById('email_field');
  const userPass = document.getElementById('password_field');
- const btnLogin = document.getElementById('btnLogin');
 
- //Añadir evento login_form
- btnLogin.addEventListener('click', e => {
+ //Añadir un listener en tiempo real
+ firebase.auth().onAuthStateChanged(firebaseUser => {
+
+   if (firebaseUser) {
+     window.location.assign("Cobrador.html");
+   }else {
+     console.log('no logeado');
+   }
+ });
+ var user = firebase.auth().currentUser;
+ function Login() {
    //Obtene email y pass
    const email = userEmail.value;
    const pass = userPass.value;
@@ -21,7 +29,7 @@ firebase.initializeApp({
    //Sign in
    const promise = auth.signInWithEmailAndPassword(email, pass);
    promise.catch(e => console.log(e.message));
-   firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+   firebase.auth().signInWithEmailAndPassword(email, pass).catch(function (error) {
      // Handle Errors here.
      var errorCode = error.code;
      var errorMessage = error.message;
@@ -30,24 +38,14 @@ firebase.initializeApp({
      var passInvalid = "Contraseña invalida o no existe la cuenta";
      var userNone = "Correo no registrado"
      if (errorMessage === "The email address is badly formatted.") {
-      errorMessage = emailFormat;
+       errorMessage = emailFormat;
      }
      if (errorMessage === "There is no user record corresponding to this identifier. The user may have been deleted.") {
-      errorMessage = userNone;
+       errorMessage = userNone;
      }
      if (errorMessage === "The password is invalid or the user does not have a password.") {
-      errorMessage = passInvalid;
+       errorMessage = passInvalid;
      }
-     alert('Error: '+errorMessage);
+     alert('Error: ' + errorMessage);
    });
-
- });
- //Añadir un listener en tiempo real
- firebase.auth().onAuthStateChanged(firebaseUser => {
-   if (firebaseUser) {
-     window.location.assign("Cobrador.html");
-   }else {
-     console.log('no logeado');
-   }
- });
- var user = firebase.auth().currentUser;
+ }

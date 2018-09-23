@@ -9,7 +9,18 @@ firebase.initializeApp({
   
   // Initialize Cloud Firestore through Firebase
   var db = firebase.firestore();
-
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if (!firebaseUser) {
+            window.location.assign("index.html");
+        } else {
+            console.log('si logeado');
+        }
+    });
+    var user = firebase.auth().currentUser;
+    function Logout() {
+        firebase.auth().signOut();
+        window.location.assign("index.html");
+    }
 
 
 
