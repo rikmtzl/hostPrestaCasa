@@ -12,7 +12,11 @@ firebase.initializeApp({
 
    firebase.auth().onAuthStateChanged(firebaseUser => {
      if (!firebaseUser) {
+<<<<<<< HEAD:Agente/jsCode/regClientes.js
          window.location.assign("index.html");
+=======
+         window.location.replace("https://rikmtzl.github.io/hostPrestaCasa/Vistas%20Agente/index.html");
+>>>>>>> b5c28aa6e6ab41689c89be76cc23990a10f64eb1:Vistas Agente/jsCode/regClientes.js
      }else {
        console.log('si logeado');
      }
@@ -22,7 +26,11 @@ firebase.initializeApp({
     //Cerrar sesion
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
+<<<<<<< HEAD:Agente/jsCode/regClientes.js
         window.location.assign("index.html");
+=======
+        window.location.replace("https://rikmtzl.github.io/hostPrestaCasa/Vistas%20Agente/index.html");
+>>>>>>> b5c28aa6e6ab41689c89be76cc23990a10f64eb1:Vistas Agente/jsCode/regClientes.js
     })
 
   //Crear Documentos

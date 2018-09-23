@@ -45,7 +45,11 @@ firebase.initializeApp({
  //Añadir un listener en tiempo real
  firebase.auth().onAuthStateChanged(firebaseUser => {
    if (firebaseUser) {
+<<<<<<< HEAD:Agente/jsCode/login.js
      window.location.assign("RegClientes.html");
+=======
+     window.location.assign("/RegClientes.html");
+>>>>>>> b5c28aa6e6ab41689c89be76cc23990a10f64eb1:Vistas Agente/jsCode/login.js
    }else {
      console.log('no logeado');
    }
