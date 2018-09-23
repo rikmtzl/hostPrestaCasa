@@ -12,8 +12,7 @@ firebase.initializeApp({
 
    firebase.auth().onAuthStateChanged(firebaseUser => {
      if (!firebaseUser) {
-         window.location.replace("file:///C:/xampp/htdocs/PrestaCasa/Vistas%20Agente/index.html");
-       // location.href ="file:///C:/xampp/htdocs/PrestaCasa/Vistas%20Agente/RegClientes.html";
+         window.location.replace("https://rikmtzl.github.io/hostPrestaCasa/Vistas%20Agente/index.html");
      }else {
        console.log('si logeado');
      }
@@ -23,7 +22,7 @@ firebase.initializeApp({
     //Cerrar sesion
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.replace("file:///C:/xampp/htdocs/PrestaCasa/Vistas%20Agente/index.html");
+        window.location.replace("https://rikmtzl.github.io/hostPrestaCasa/Vistas%20Agente/index.html");
     })
 
   //Crear Documentos
